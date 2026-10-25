@@ -5,7 +5,7 @@ if (!process.env.STRIPE_SECRET_KEY) {
 }
 
 export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-    apiVersion: '2025-07-30.basil',
+    apiVersion: '2026-09-30.endive',
 });
 
 // Stripe Connect helper functions
@@ -107,7 +107,7 @@ export const stripeConnect = {
     ) {
         try {
             const session = await stripe.checkout.sessions.create({
-                payment_method_types: ['card'],
+                allowed_payment_method_types: ['card'],
                 line_items: [
                     {
                         price_data: {

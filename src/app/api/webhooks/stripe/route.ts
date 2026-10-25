@@ -4,7 +4,7 @@ import dbConnect from "@/lib/connection/dbConnect";
 import ProductModel from "@/model/Product";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2025-07-30.basil",
+  apiVersion: "2026-09-30.endive",
 });
 
 const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET!;

@@ -4,7 +4,7 @@ import dbConnect from "@/lib/connection/dbConnect";
 import ProductModel from "@/model/Product";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2025-07-30.basil",
+  apiVersion: "2026-09-30.endive",
 });
 
 export async function POST(req: NextRequest) {
@@ -54,7 +54,7 @@ export async function POST(req: NextRequest) {
 
     // Create Stripe checkout session
     const session = await stripe.checkout.sessions.create({
-      payment_method_types: ["card"],
+      allowed_payment_method_types: ["card"],
       line_items: lineItems,
       mode: "payment",
       success_url: `${process.env.NEXTAUTH_URL}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
